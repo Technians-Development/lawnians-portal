@@ -92,6 +92,21 @@ export default function Login({ status, canResetPassword }) {
                     </PrimaryButton>
                 </div>
             </form>
+            <div>
+            {/* <Link href={route('google-auth')}>
+                            Login with google
+                        </Link> */}
+            </div>
+            {/* <PrimaryButton>
+            <Link href={route('google-auth')}>
+                            Login with google
+                        </Link>
+                    </PrimaryButton> */}
+                    
+                    {/* <Link href={route('google-auth')}>
+                        login
+                    </Link> */}
+                    <a href={route('google-auth')}>login</a>
         </GuestLayout>
     );
 }

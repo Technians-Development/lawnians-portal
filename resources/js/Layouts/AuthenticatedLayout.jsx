@@ -4,8 +4,6 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
-// import { Button } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
 
 export default function Authenticated({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
@@ -24,17 +22,12 @@ export default function Authenticated({ user, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Home
-                                    
+                                    Dashboard
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    About us
-                                    
+                                <NavLink href={route('form')} active={route().current('form')}>
+                                    Form Data
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('dashboard')}>
-                                    Contact us
-                                    
-                                </NavLink>
+                               
                             </div>
                         </div>
 
@@ -105,7 +98,6 @@ export default function Authenticated({ user, header, children }) {
                     <div className="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
-                            
                         </ResponsiveNavLink>
                     </div>
 
@@ -131,10 +123,7 @@ export default function Authenticated({ user, header, children }) {
                 </header>
             )}
 
-            <main>{children}
-            {/* <Button variant="primary">hello</Button> */}
-            <Button variant="primary">Primary</Button>{' '}
-            </main>
+            <main>{children}</main>
         </div>
     );
 }
