@@ -3,39 +3,54 @@ import { Link } from '@inertiajs/react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function FrontendLayout({ children }) {
-    return (
-<>
-<header>
+  return (
+    <>
+      <header>
 
-<Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        {/* <Navbar.Brand href="/">Lawnians</Navbar.Brand> */}
-        {/* <Link href="/">Lawnians</Link> */}
-        
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-          <Nav.Link><Link href="/">Home</Link></Nav.Link>
-          <Nav.Link><Link href="about">About</Link></Nav.Link>
-          <Nav.Link><Link href="contact">Contact</Link> </Nav.Link>         
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-    </header>   
+        <Navbar expand="lg" className="bg-body-tertiary">
+          <Container>
+              <Nav className="me-auto">
+                <Nav.Link as={Link} href="/">Home</Nav.Link>
+                <Nav.Link as={Link} href="about">About</Nav.Link>
+                <Nav.Link as={Link} href="contact">Contact</Nav.Link>         
+              </Nav>
+           
+                
+          {true && (
+            <div style={{ display: 'flex' }}>
+              {false ? (
+                <a href="/home" className="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+              ) : (
+                <>
+                  {/* <Nav.Link><Link href="/login">Log in</Link></Nav.Link> */}
+                  <Nav.Link as={Link} href="/login" className="btn btn-secondary" style={{ marginRight: '10px'}}>Login</Nav.Link>
 
-            <div >
-                {children}
+                  {true && (
+                    // <Nav.Link><Link href="/register">Register</Link></Nav.Link>
+                    <Nav.Link as={Link} href="/register" className="btn btn-secondary">Register</Nav.Link>
+
+                  )}
+                </>
+              )}
             </div>
+          )}
+          
 
-            <footer>
-                <p>this is footer</p>
-            </footer>
-        </>
-    );
+        </Container>
+        </Navbar>
+
+      </header>
+
+      <div >
+        {children}
+      </div>
+
+      <footer>
+        <p>this is footer</p>
+      </footer>
+    </>
+  );
 }
